@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import kh.lclass.db1.member.model.service.MemberService;
 import kh.lclass.db1.member.model.vo.MemberVo;
@@ -27,9 +28,26 @@ public class MemberController {
 		model.addAttribute("memberList", volist);   
 		return "member/list";
 	}
+	
 	@GetMapping("/member/get")
-	public String get(Model model) {
-		//TODO: model.addAttribute("membervo", memberService.selectOne());
+	public String get(Model model
+//방법1			HttpServletRequest request
+			, String mid
+			) {
+		model.addAttribute("membervo", memberService.selectOne(mid));
 		return "member/get";
+	}
+	@GetMapping("/member/insert")
+	public String insert() {
+		return "member/insert";
+	}
+	@PostMapping("/member/insert") 
+	public String insertDo(
+			MemberVo vo
+			, String mpwd
+			) {
+		System.out.println(vo);
+		System.out.println(mpwd);
+		return "redirect:/member/list";
 	}
 }

@@ -24,8 +24,8 @@ public class MemberService {
 //		return memberDao.selectList(); 
 //	}
 //	
-	public MemberVo selectOne(String pk) {
-		return memberDao.selectOne(pk);
+	public MemberVo selectOne(String mid) {
+		return memberDao.selectOne(mid);
 	}
 	public int insert(MemberVo vo) {
 		memberDao.update(vo);

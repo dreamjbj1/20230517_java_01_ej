@@ -24,8 +24,8 @@ public class MemberDao {
 //	public List<MemberVo> selectList() {
 //		return sqlSession.selectList("member.selectList");
 //	}
-	public MemberVo selectOne(String pk) {
-		return sqlSession.selectOne("member.selectOne", pk);
+	public MemberVo selectOne(String mid) {
+		return sqlSession.selectOne("member.selectOne", mid);
 	}
 	public int insert(MemberVo vo) {
 		return sqlSession.insert("member.insert", vo);
